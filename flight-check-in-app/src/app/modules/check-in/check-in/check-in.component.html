@@ -1,0 +1,35 @@
+<!-- <h2>Check-in</h2>
+<form [formGroup]="checkInForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="bookingCode" i18n>Booking Code:</label>
+    <input type="text" id="bookingCode" formControlName="bookingCode" />
+    <div
+      *ngIf="bookingCode.invalid && (bookingCode.dirty || bookingCode.touched)"
+    >
+      <div *ngIf="bookingCode.errors?.required">Booking code is required.</div>
+      <div *ngIf="bookingCode.errors?.minlength">
+        Booking code should be at least 5 characters long.
+      </div>
+      <div *ngIf="bookingCode.errors?.maxlength">
+        Booking code cannot exceed 6 characters.
+      </div>
+      <div *ngIf="bookingCode.errors?.pattern">
+        Booking code should only contain numbers from 2 to 9.
+      </div>
+    </div>
+  </div>
+  <div>
+    <label for="familyName" i18n>Family Name:</label>
+    <input type="text" id="familyName" formControlName="familyName" />
+    <div *ngIf="familyName.invalid && (familyName.dirty || familyName.touched)">
+      <div *ngIf="familyName.errors?.required">Family name is required.</div>
+      <div *ngIf="familyName.errors?.minlength">
+        Family name should be at least 2 characters long.
+      </div>
+      <div *ngIf="familyName.errors?.maxlength">
+        Family name cannot exceed 30 characters.
+      </div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="checkInForm.invalid" i18n>Check-in</button>
+</form> -->

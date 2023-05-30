@@ -1,0 +1,17 @@
+.header {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: no-repeat url(/assets/img/af_pattern_bg.png);
+  color: white;
+  font-weight: 600;
+}
+
+.header .page-name {
+  font-family: "Cantarell 600 SemiBold", sans-serif;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
