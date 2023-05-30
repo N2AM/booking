@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AppStateService } from '../../services/app-state.service';
+import { Observable } from 'rxjs';
+import { AppStateModel } from 'src/app/store/models/appState.model';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+
+  pageTitle$!: Observable<AppStateModel>
+
+  constructor(private appStateService: AppStateService) { }
+
+  ngOnInit(): void {
+
+    this.pageTitle$ = this.appStateService.pageTitle$
+
+  }
+
 
 }
