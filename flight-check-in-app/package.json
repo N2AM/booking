@@ -15,7 +15,8 @@
     "env:generate": "ng generate environments",
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "push:skip-ci":"git push -o ci.skip"
   },
   "private": true,
   "dependencies": {
