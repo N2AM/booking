@@ -19,6 +19,7 @@ export class AppState {
 
     @Selector()
     static getPageTitle(state: AppStateModel): string {
+        console.log(state.pageTitle)
         return state.pageTitle;
     }
 
