@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppStateService } from '../../services/app-state.service';
 import { AppStateModel } from 'src/app/store/models/appState.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -9,15 +10,14 @@ import { AppStateModel } from 'src/app/store/models/appState.model';
 })
 export class HeaderComponent implements OnInit {
 
-  pageTitle!: AppStateModel
+  pageTitle$!: Observable<AppStateModel>
+
 
   constructor(private appStateService: AppStateService) { }
 
   ngOnInit(): void {
 
-    this.appStateService.pageTitle$.subscribe((title: AppStateModel) => {
-      this.pageTitle = title;
-    })
+    this.pageTitle$ = this.appStateService.pageTitle$;
 
   }
 
