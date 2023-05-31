@@ -1,7 +1,7 @@
 overwrite: true
-schema: 'src/app/modules/booking/graphql/booking.schema.graphql'
+schema: 'src/app/modules/check-in/graphql/booking.schema.graphql'
 generates:
-  src/app/modules/booking/graphql:
+  src/app/modules/check-in/graphql:
     plugins:
       - typescript
       - typescript-operations
@@ -10,10 +10,10 @@ generates:
     presetConfig:
       baseTypesPath: booking-types.graphql-gen.ts
       extension: .graphql-gen.ts
-  src/app/modules/booking/graphql/booking-types.graphql-gen.ts:
+  src/app/modules/check-in/graphql/booking-types.graphql-gen.ts:
     plugins:
       - typescript
-  src/app/modules/booking/graphql/booking.schema.graphql:
+  src/app/modules/check-in/graphql/booking.schema.graphql:
     plugins:
       - "@graphql-codegen/introspection"
     preset: near-operation-file

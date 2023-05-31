@@ -20,13 +20,17 @@ import { GraphQLModule } from './graphql.module';
 import { environment } from '../environments/environment';
 import { HeaderComponent } from './marginals/header/header.component';
 import { AppStateService } from './services/app-state.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDisplayComponent } from './error-handling/error-display/error-display.component';
 
-const initializeApp = (appStateService: AppStateService) => {
+const initializeApp = (appStateService: AppStateService, dialog: MatDialog) => {
   return async () => {
     try {
       const initialPageTitle = appStateService.pageTitle.emit({ pageTitle: 'Check-In' })
     } catch (e) {
-      console.log('Setting initial Page title error')
+      const dialogRef = dialog.open(ErrorDisplayComponent, {
+        data: { errorMessage: 'Setting initial Page title error' },
+      });
     }
   };
 }

@@ -5,9 +5,6 @@ const routes: Routes = [
   {
     path: '', loadChildren: () => import('./modules/check-in/check-in.module').then(m => m.CheckInModule)
   },
-  {
-    path: 'booking', loadChildren: () => import('./modules/booking/booking.module').then(m => m.BookingModule)
-  },
 ];
 
 @NgModule({

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppStateService } from '../../services/app-state.service';
-import { Observable } from 'rxjs';
 import { AppStateModel } from 'src/app/store/models/appState.model';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-header',
@@ -16,8 +17,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.pageTitle$ = this.appStateService.pageTitle$
-
+    this.pageTitle$ = this.appStateService.pageTitle$;
   }
 
 

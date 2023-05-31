@@ -1,19 +1,17 @@
-import { APOLLO_NAMED_OPTIONS, ApolloModule, NamedOptions } from 'apollo-angular';
+import { APOLLO_NAMED_OPTIONS, APOLLO_OPTIONS, ApolloModule, NamedOptions } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { NgModule } from '@angular/core';
-import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
+import { InMemoryCache } from '@apollo/client/core';
 import { GRAPHQL_URL } from './constants';
 
 const uri = GRAPHQL_URL; // URL of the GraphQL server
 
-export const createApollo = (httpLink: HttpLink): NamedOptions => {
+export const createApollo = (httpLink: HttpLink) => {
   return {
-    Booking_Client: {
-      cache: new InMemoryCache({ addTypename: false }),
-      link: httpLink.create({
-        uri: uri,
-      }),
-    },
+    cache: new InMemoryCache({ addTypename: false }),
+    link: httpLink.create({
+      uri: uri,
+    }),
   }
 }
 
@@ -21,7 +19,7 @@ export const createApollo = (httpLink: HttpLink): NamedOptions => {
   exports: [ApolloModule],
   providers: [
     {
-      provide: APOLLO_NAMED_OPTIONS,
+      provide: APOLLO_OPTIONS,
       useFactory: createApollo,
       deps: [HttpLink],
     },

@@ -23,7 +23,7 @@ export class AppState {
         return state.pageTitle;
     }
 
-    @Receiver({ type: AppActionsType.GET_PAGE_TITLe })
+    @Receiver({ type: AppActionsType.SET_PAGE_TITLe })
     static setPageTitle(context: StateContext<AppStateModel>, { payload }: EmitterAction<AppStateModel>): void {
         context.patchState({
             pageTitle: payload.pageTitle,

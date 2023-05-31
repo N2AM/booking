@@ -9,8 +9,7 @@ export class GraphqlService {
   constructor(private apollo: Apollo) { }
 
   getBooking(): Observable<any> {
-    return this.apollo.query({
-      query: gql`
+    const query = gql`
         query GetBooking {
           booking {
             bookingCode
@@ -132,7 +131,28 @@ export class GraphqlService {
             }
           }
         }
-      `,
+      `
+    return this.apollo.query({
+      query: query,
     });
   }
+
+  bookingCheck(bookingCode: string, lastName: string): Observable<any> {
+    const query = gql`
+    query BookingCheck($bookingCode: String!, $lastName: String!) {
+  bookingCheck(bookingCode: $bookingCode, lastName: $lastName)
+}`
+
+    const variables = {
+      bookingCode: bookingCode,
+      lastName: lastName,
+    };
+
+    return this.apollo
+      .query({
+        query: query,
+        variables: variables,
+      })
+  }
+
 }

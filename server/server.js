@@ -8,13 +8,12 @@ const app = express();
 
 app.use(cors());
 
-// Create a GraphQL route
 app.use(
   "/graphql",
   graphqlHTTP({
     schema: schema,
     rootValue: resolvers,
-    graphiql: true, // Enable GraphiQL for testing the API in the browser
+    graphiql: true,
   })
 );
 
