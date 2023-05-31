@@ -1,88 +1,76 @@
 <div class="container">
   <div class="form">
-    <h2 i18n>Retrieve Your Booking</h2>
-    <p i18n>
+    <h1 class="h1 primary" i18n>
+      Retrieve Your Booking
+      <hr />
+    </h1>
+    <p class="secondary" i18n>
       You can find Your booking by filling out your family name and the booking
-      code in your booking confirmation
+      code in your booking confirmation.
     </p>
-    <form [formGroup]="checkInForm" (ngSubmit)="onSubmit()">
-      <div>
-        <mat-form-field class="w-full" appearance="outline">
-          <mat-label i18n>Booking Code</mat-label>
-          <input
-            id="bookingCode"
-            matInput
-            formControlName="bookingCode"
-            required
-          />
-          <mat-hint>e.g. ACQ267</mat-hint>
-          <!-- <div
-        *ngIf="
-          bookingCode?.invalid && (bookingCode?.dirty || bookingCode?.touched)
-        "
-      > -->
-          <mat-error
-            *ngIf="checkInForm.get('bookingCode')?.hasError('required')"
-            i18n
-            >Booking code is required.</mat-error
-          >
-          <mat-error
-            *ngIf="checkInForm.get('bookingCode')?.hasError('minlength')"
-            i18n
-            >Make sure the booking code contains at least 5 characters or
-            digits.</mat-error
-          >
-          <mat-error
-            *ngIf="checkInForm.get('bookingCode')?.hasError('maxlength')"
-            i18n
-          >
-            Booking code cannot exceed 6 characters.
-          </mat-error>
-          <mat-error
-            *ngIf="checkInForm.get('bookingCode')?.hasError('pattern')"
-            i18n
-            >Booking code should only contain numbers from 2 to 9.</mat-error
-          >
-          <!-- </div> -->
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field class="w-full" appearance="outline">
-          <mat-label i18n>Family Name</mat-label>
-          <input
-            id="familyName"
-            matInput
-            formControlName="familyName"
-            required
-          />
-          <mat-error
-            *ngIf="checkInForm.get('familyName')?.hasError('required')"
-            i18n
-            >Family Name is required.</mat-error
-          >
-          <mat-error
-            *ngIf="checkInForm.get('familyName')?.hasError('minlength')"
-            i18n
-            >Make sure the Family Name contains at least 2
-            characters.</mat-error
-          >
-          <mat-error
-            *ngIf="checkInForm.get('familyName')?.hasError('maxlength')"
-            i18n
-          >
-            Family Name cannot exceed 30 characters.
-          </mat-error>
-        </mat-form-field>
-      </div>
+    <form class="form-fields" [formGroup]="checkInForm" (ngSubmit)="onSubmit()">
+      <label class="secondary" i18n>Booking code</label>
+      <mat-form-field class="w-full">
+        <input
+          id="bookingCode"
+          matInput
+          formControlName="bookingCode"
+          required
+        />
+        <mat-hint class="secondary">e.g. ACQ267</mat-hint>
+        <mat-error
+          *ngIf="checkInForm.get('bookingCode')?.hasError('required')"
+          i18n
+          >Booking code is required.</mat-error
+        >
+        <mat-error
+          *ngIf="checkInForm.get('bookingCode')?.hasError('minlength')"
+          i18n
+          >Make sure the booking code contains at least 5 characters or
+          digits.</mat-error
+        >
+        <mat-error
+          *ngIf="checkInForm.get('bookingCode')?.hasError('maxlength')"
+          i18n
+        >
+          Booking code cannot exceed 6 characters.
+        </mat-error>
+        <mat-error
+          *ngIf="checkInForm.get('bookingCode')?.hasError('pattern')"
+          i18n
+          >Booking code should only contain numbers from 2 to 9.</mat-error
+        >
+      </mat-form-field>
+      <label class="secondary" i18n>Family name</label>
+      <mat-form-field class="w-full">
+        <input id="familyName" matInput formControlName="lastName" required />
+        <mat-error
+          *ngIf="checkInForm.get('lastName')?.hasError('required')"
+          i18n
+          >Family name is required.</mat-error
+        >
+        <mat-error
+          *ngIf="checkInForm.get('lastName')?.hasError('minlength')"
+          i18n
+          >Make sure the family name contains at least 2 characters.</mat-error
+        >
+        <mat-error
+          *ngIf="checkInForm.get('lastName')?.hasError('maxlength')"
+          i18n
+        >
+          Family name cannot exceed 30 characters.
+        </mat-error>
+      </mat-form-field>
       <button
         class="w-full"
+        [ngClass]="{ 'bg-red': checkInForm.valid }"
         mat-flat-button
         color="warn"
         type="submit"
         [disabled]="checkInForm.invalid"
         i18n
       >
-        Retrieve Booking
+        Retrieve booking
       </button>
     </form>
   </div>

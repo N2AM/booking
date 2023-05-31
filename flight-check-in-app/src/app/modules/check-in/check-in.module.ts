@@ -10,12 +10,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { ErrorDisplayComponent } from 'src/app/error-handling/error-display/error-display.component';
+import { GraphQLModule } from 'src/app/graphql.module';
+
+
 
 
 @NgModule({
   declarations: [
     CheckInComponent,
-
   ],
   imports: [
     CommonModule,
@@ -24,7 +30,11 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    ErrorDisplayComponent,
+    GraphQLModule
+  ],
 })
 export class CheckInModule { }

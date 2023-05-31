@@ -1,0 +1,24 @@
+@use "branding" as b;
+
+.container {
+  height: 100%;
+  text-align: center;
+  padding: 4 * b.$base-padding;
+
+  @media only screen and (min-width: 769px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.booking-details {
+  text-align: left;
+  padding: 0 2 * b.$base-padding;
+  p {
+    text-align: left;
+  }
+  mat-expansion-panel {
+    margin: 2em 0;
+  }
+}

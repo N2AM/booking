@@ -1,12 +1,15 @@
 @use "branding" as b;
 
 h1 {
-  font-size: 40px;
-  font-weight: 700;
+  font-family: "Cantarell 600 SemiBold", sans-serif !important;
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  line-height: 1.3em !important;
 }
 h2 {
-  font-size: 32px;
-  font-weight: 600;
+  font-size: 26px !important;
+  font-weight: 400 !important;
 }
 h3 {
 }

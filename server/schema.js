@@ -2,7 +2,8 @@ const { buildSchema } = require("graphql");
 
 const schema = buildSchema(`
   type Query {
-    booking: Booking
+    booking: Booking,
+    bookingCheck(bookingCode: String!, lastName: String!): Boolean
   }
 
   type Booking {
