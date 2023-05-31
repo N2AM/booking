@@ -1,4 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@use "branding" as b;
+@use "colors";
+@use "bg-colors";
+@use "dementions";
+@use "headings";
+@use "theme_variable";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, Cantarell, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}

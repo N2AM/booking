@@ -4,6 +4,13 @@ import { CommonModule } from '@angular/common';
 import { CheckInRoutingModule } from './check-in-routing.module';
 import { CheckInComponent } from './check-in/check-in.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// Angular Material
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +19,12 @@ import { CheckInComponent } from './check-in/check-in.component';
   ],
   imports: [
     CommonModule,
-    CheckInRoutingModule
+    CheckInRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class CheckInModule { }

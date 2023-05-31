@@ -1,0 +1,20 @@
+@use "branding" as b;
+
+.container {
+  height: 100%;
+
+  @media only screen and (min-width: 769px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.form {
+  @media only screen and (min-width: 769px) {
+    border: 1px solid var(--scondary);
+    width: 30%;
+  }
+  text-align: center;
+  padding: 3 * b.$base-padding;
+}

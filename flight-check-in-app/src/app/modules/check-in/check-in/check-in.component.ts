@@ -1,5 +1,7 @@
+import { PATHS } from './../../../constants';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-check-in',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CheckInComponent implements OnInit {
   checkInForm: FormGroup = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.checkInForm = this.formBuilder.group({
@@ -17,7 +19,7 @@ export class CheckInComponent implements OnInit {
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(6),
-        Validators.pattern('[2-9]+')
+        Validators.pattern(/^[2-9a-zA-Z]+$/)
       ]],
       familyName: ['', [
         Validators.required,
@@ -41,6 +43,7 @@ export class CheckInComponent implements OnInit {
       console.log('Check-in form submitted!');
       console.log('Booking Code:', this.checkInForm.value.bookingCode);
       console.log('Family Name:', this.checkInForm.value.familyName);
+      this.router.navigate([PATHS.BOOKING])
     }
   }
 }
